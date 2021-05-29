@@ -1,0 +1,12 @@
+﻿  MatrixConverter.cpp
+C:\Users\pilip\source\repos\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(20,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\pilip\source\repos\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(30,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\pilip\source\repos\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(69,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\pilip\source\repos\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(98,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\pilip\source\repos\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(100,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\pilip\source\repos\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(109,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\pilip\source\repos\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(110,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\pilip\source\repos\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(157,9): warning C4018: >=: несоответствие типов со знаком и без знака
+  main.cpp
+  Создание кода...
+  MSTiIS_2.vcxproj -> C:\Users\pilip\source\repos\MSTiIS_2\Debug\MSTiIS_2.exe
