@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MatrixConverter.cpp" />
-    <ClCompile Include="MSTiIS_2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MatrixConverter.h" />

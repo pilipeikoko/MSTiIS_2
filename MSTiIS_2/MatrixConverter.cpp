@@ -2,23 +2,37 @@
 
 double MatrixConverter::getElementC(int i, int j)
 {
-	counter += 12;
+	totalCounter += 12;
+	elementCCounter++;
+
+	sumCounter += 2;
+	multiplicationCounter += 7;
+	diffirenceCounter += 3;
+	
 	return conjunctionOfF(i, j) * (3 * G[i][j] - 2) * G[i][j] + (disjunctionOfD(i, j) +
 		(4 * multiplyConjuctionOfFAndDisjunctionOfD(i, j) - 3 * disjunctionOfD(i, j)) * G[i][j]) * (1 - G[i][j]);
 }
 
 double MatrixConverter::getElementF(int i, int j, int k)
 {
-	counter += 12;
+	totalCounter += 12;
+	elementFCounter++;
+
+	multiplicationCounter += 7;
+	diffirenceCounter += 3;
+	sumCounter += 2;
+
 	return aPointB(i, j, k) * (2 * E[0][k] - 1) * E[0][k] +
 		bPointA(i, j, k) * (1 + (4 * aPointB(i, j, k) - 2) * E[0][k]) * (1 - E[0][k]);
 }
 
 double MatrixConverter::conjunctionOfF(int i, int j)
 {
+	conjunctionOfFCounter++;
 	double result = 1.0;
 	for (int k = 0; k < B.size(); k++) {
-		counter++;
+		multiplicationCounter++;
+		totalCounter++;
 		result *= getElementF(i, j, k);
 	}
 	return result;
@@ -26,25 +40,33 @@ double MatrixConverter::conjunctionOfF(int i, int j)
 
 double MatrixConverter::disjunctionOfD(int i, int j)
 {
+	disjunctionOfDCounter++;
 	double result = 1.0;
 	for (int k = 0; k < B.size(); k++) {
-		counter += 2;
-
+		totalCounter += 2;
+		multiplicationCounter++;
+		diffirenceCounter++;
 		result *= 1 - aConjunctionB(i, j, k);
 	}
-	counter++;
+	totalCounter++;
 	return 1 - result;
 }
 
 double MatrixConverter::multiplyConjuctionOfFAndDisjunctionOfD(int i, int j)
 {
-	counter++;
+	totalCounter++;
+	multiplyConjuctionOfFAndDisjunctionOfDCounter++;
+	multiplicationCounter++;
 	return conjunctionOfF(i, j) * disjunctionOfD(i, j);
 }
 
 double MatrixConverter::aPointB(int i, int j, int k) 
 {
-	counter += 3;
+	totalCounter += 3;
+	aPointBCounter++;
+	sumCounter++;
+	diffirenceCounter++;
+	comparingCounter++;
 	double result = 1 - A[i][k] + B[k][j];
 	// does it make sence?
 	return result < 1 ? result : 1;
@@ -52,16 +74,24 @@ double MatrixConverter::aPointB(int i, int j, int k)
 
 double MatrixConverter::bPointA(int i, int j, int k)
 {
+	totalCounter += 3;
+	bPointACounter++;
+	sumCounter++;
+	diffirenceCounter++;
+	comparingCounter++;
 	double result = 1 - B[k][j] + A[i][k];
-	counter += 3;
 	return result < 1 ? result : 1;
 }
 
 double MatrixConverter::aConjunctionB(int i, int j, int k)
 {
+	aConjunctionBCounter++;
+	sumCounter++;
+	diffirenceCounter++;
+	comparingCounter++;
+	totalCounter += 3;
 	double result = A[i][k] + B[k][j] - 1;
-	counter += 3;
-	return result > 1 ? result : 1;
+	return result > 0 ? result : 0;
 }
 
 void MatrixConverter::generateInputMatrixes()
@@ -120,7 +150,7 @@ MatrixConverter::MatrixConverter(size_t p, size_t m, size_t q, int n)
 	this->m = m;
 	this->q = q;
 	this->n = n;
-	counter = 0;
+	totalCounter = 0;
 	generateInputMatrixes();
 	createC();
 }
@@ -157,14 +187,119 @@ void MatrixConverter::printInputMatrixes()const
 	}
 }
 
-int MatrixConverter::getCounter()const
+int MatrixConverter::getSequentialTime()const
 {
-	return counter;
+	return totalCounter;
 }
 
 int MatrixConverter::getParallelTime() const
 {
-	int tn = counter;
+	int tn = totalCounter;
 	tn = n >= p * q * m ? tn / (p * q * m) : tn / n;
 	return tn;
 }
+
+double MatrixConverter::getEffectivity() const
+{
+	int tn = totalCounter;
+	tn = n >= p * q * m ? tn / (p * q * m) : tn / n;
+	double result = totalCounter / tn ;
+	return result/n;
+}
+
+double MatrixConverter::getCoefficientOfAcceleration() const
+{
+	int tn = totalCounter;
+	tn = n >= p * q * m ? tn / (p * q * m) : tn / n;
+	double result = totalCounter / tn;
+	return result;
+}
+
+int MatrixConverter::getAPointBCounter()
+{
+	return aPointBCounter;
+}
+
+int MatrixConverter::getBPointACounter()
+{
+	return bPointACounter;
+}
+
+int MatrixConverter::getConjunctionOfFCounter()
+{
+	return conjunctionOfFCounter;
+}
+
+int MatrixConverter::getDisjunctionOfDCounter()
+{
+	return disjunctionOfDCounter;
+}
+
+int MatrixConverter::getAConjunctionBCounter()
+{
+	return aConjunctionBCounter;
+}
+
+int MatrixConverter::getMultiplyConjuctionOfFAndDisjunctionOfDCounter()
+{
+	return multiplyConjuctionOfFAndDisjunctionOfDCounter;
+}
+
+int MatrixConverter::getElementCCounter()
+{
+	return elementCCounter;
+}
+
+int MatrixConverter::getElementFCounter()
+{
+	return elementFCounter;
+}
+
+int MatrixConverter::getLavg(int time_of_sum, int time_of_difference, int time_of_multiplicity, int time_of_comparing)
+{
+	double Lavg = 0.0;
+
+	Lavg += (7 * time_of_multiplicity + 2 * time_of_sum + 3 * time_of_difference) * p * q;
+	Lavg += (7 * time_of_multiplicity + 2 * time_of_sum + 3 * time_of_difference) * p * m * q;
+	Lavg += time_of_multiplicity * (m - 1) * getDisjunctionOfDCounter();
+	Lavg += (time_of_multiplicity * (m - 1) + time_of_difference * (m + 1)) * getConjunctionOfFCounter();
+	Lavg += (time_of_comparing + time_of_difference + time_of_sum) * getAConjunctionBCounter();
+	Lavg += (time_of_comparing + time_of_difference + time_of_sum) * getAPointBCounter();
+	Lavg += (time_of_comparing + time_of_difference + time_of_sum) * getBPointACounter();
+	Lavg += time_of_multiplicity * getMultiplyConjuctionOfFAndDisjunctionOfDCounter();
+	Lavg /= (p * m * q);
+	return Lavg;
+}
+
+int MatrixConverter::getD(int time_of_sum, int time_of_difference, int time_of_multiplicity, int time_of_comparing)
+{
+	return getSumLenthOfProgram() / getLavg(time_of_sum, time_of_difference, time_of_multiplicity, time_of_comparing);
+}
+
+
+
+int MatrixConverter::getSumCounter()
+{
+	return sumCounter;
+}
+
+int MatrixConverter::getDiffirenceCounter()
+{
+	return diffirenceCounter;
+}
+
+int MatrixConverter::getMultiplicationCounter()
+{
+	return multiplicationCounter;
+}
+
+int MatrixConverter::getComparingCounter()
+{
+	return comparingCounter;
+}
+
+int MatrixConverter::getSumLenthOfProgram() const
+{
+	return totalCounter;
+}
+

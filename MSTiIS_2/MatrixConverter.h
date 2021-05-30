@@ -21,7 +21,26 @@ private:
 	size_t q;
 
 	int n;
-	int counter;
+	int totalCounter;
+
+	int sumCounter = 0;
+	int diffirenceCounter = 0;
+	int multiplicationCounter = 0;
+	int comparingCounter = 0;
+
+	int aPointBCounter = 0;
+	int bPointACounter = 0;
+
+	int conjunctionOfFCounter = 0;
+	int disjunctionOfDCounter = 0;
+
+	int aConjunctionBCounter = 0;
+	int multiplyConjuctionOfFAndDisjunctionOfDCounter = 0;
+
+	int elementCCounter = 0;
+	int elementFCounter = 0;
+
+
 
 	double getElementF(int i, int j, int k);
 	double getElementC(int i, int j);
@@ -33,7 +52,6 @@ private:
 	double bPointA(int i, int j, int k);
 
 	double aConjunctionB(int i, int j, int k);
-
 	double multiplyConjuctionOfFAndDisjunctionOfD(int i, int j);
 
 	void createC();
@@ -46,7 +64,30 @@ public:
 	void printInputMatrixes() const;
 	void printC() const;
 
-	int getCounter() const;
+	int getSequentialTime() const;
 	int getParallelTime() const;
+	int getSumLenthOfProgram() const;
+	double getEffectivity() const;
+	double getCoefficientOfAcceleration() const;
+
+	int getSumCounter();
+	int getDiffirenceCounter();
+	int getMultiplicationCounter();
+	int getComparingCounter();
+
+	int getAPointBCounter();
+	int getBPointACounter();
+
+	int getConjunctionOfFCounter();
+	int getDisjunctionOfDCounter();
+	
+	int getAConjunctionBCounter();
+	int getMultiplyConjuctionOfFAndDisjunctionOfDCounter();
+
+	int getElementCCounter();
+	int getElementFCounter();
+
+	int getLavg(int time_of_sum, int time_of_difference, int time_of_multiplicity, int time_of_comparing);
+	int getD(int time_of_sum, int time_of_difference, int time_of_multiplicity, int time_of_comparing);
 
 };

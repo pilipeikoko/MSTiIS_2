@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MSTiIS_2.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="MatrixConverter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
