@@ -9,10 +9,10 @@ using namespace std;
 
 class MatrixConverter {
 private:
-	vector<vector<double>> A;			// pxm
-	vector<vector<double>> B;			// mxq
-	vector<vector<double>> E;			// 1xm
-	vector<vector<double>> G;			// pxq
+	vector<vector<double>> A;// pxm
+	vector<vector<double>> B;// mxq
+	vector<vector<double>> E;// 1xm
+	vector<vector<double>> G;// pxq
 
 	vector<vector<double>> C;
 

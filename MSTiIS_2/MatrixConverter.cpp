@@ -261,8 +261,8 @@ int MatrixConverter::getLavg(int time_of_sum, int time_of_difference, int time_o
 
 	Lavg += (7 * time_of_multiplicity + 2 * time_of_sum + 3 * time_of_difference) * p * q;
 	Lavg += (7 * time_of_multiplicity + 2 * time_of_sum + 3 * time_of_difference) * p * m * q;
-	Lavg += time_of_multiplicity * (m - 1) * getDisjunctionOfDCounter();
-	Lavg += (time_of_multiplicity * (m - 1) + time_of_difference * (m + 1)) * getConjunctionOfFCounter();
+	Lavg += (time_of_multiplicity * (m - 1) + time_of_difference * (m + 1)) * getDisjunctionOfDCounter();
+	Lavg += (time_of_multiplicity * (m - 1)) * getConjunctionOfFCounter();
 	Lavg += (time_of_comparing + time_of_difference + time_of_sum) * getAConjunctionBCounter();
 	Lavg += (time_of_comparing + time_of_difference + time_of_sum) * getAPointBCounter();
 	Lavg += (time_of_comparing + time_of_difference + time_of_sum) * getBPointACounter();
