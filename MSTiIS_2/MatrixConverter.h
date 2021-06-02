@@ -23,6 +23,7 @@ private:
 	int n;
 	int totalCounter;
 	int totalParallelCounter = 0;
+	int metodParallelCounter = 0;
 
 	int sumCounter = 0;
 	int diffirenceCounter = 0;

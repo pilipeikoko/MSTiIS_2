@@ -1,0 +1,10 @@
+﻿  MatrixConverter.cpp
+C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(41,57): warning C4267: +=: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(42,106): warning C4267: +=: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(57,78): warning C4267: +=: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(58,91): warning C4267: +=: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(113,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(149,113): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(215,49): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\MSTiIS_2\MatrixConverter.cpp(282,9): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+  MSTiIS_2.vcxproj -> C:\Users\Lenovo\Desktop\mrx_Vollik\MSTiIS_2\x64\Debug\MSTiIS_2.exe

@@ -38,8 +38,8 @@ double MatrixConverter::conjunctionOfF(int i, int j)
 		result *= getElementF(i, j, k);
 	}
 
-	totalParallelCounter += time_of_multiplicity * B.size();
-	totalParallelCounter += (7 * time_of_multiplicity + 2 * time_of_sum + 3 * time_of_difference) * B.size();
+	metodParallelCounter += time_of_multiplicity * B.size();
+	metodParallelCounter += (7 * time_of_multiplicity + 2 * time_of_sum + 3 * time_of_difference) * B.size();
 
 	return result;
 }
@@ -54,8 +54,8 @@ double MatrixConverter::disjunctionOfD(int i, int j)
 		diffirenceCounter++;
 		result *= 1 - aConjunctionB(i, j, k);
 	}
-	totalParallelCounter += (time_of_multiplicity+time_of_difference) * B.size();
-	totalParallelCounter += (time_of_sum + time_of_comparing + time_of_difference) * B.size();
+	metodParallelCounter += (time_of_multiplicity+time_of_difference) * B.size();
+	metodParallelCounter += (time_of_sum + time_of_comparing + time_of_difference) * B.size();
 	return 1 - result;
 }
 
@@ -65,7 +65,7 @@ double MatrixConverter::multiplyConjuctionOfFAndDisjunctionOfD(int i, int j)
 	multiplyConjuctionOfFAndDisjunctionOfDCounter++;
 	multiplicationCounter++;
 
-	totalParallelCounter += time_of_multiplicity;
+	metodParallelCounter += time_of_multiplicity;
 
 	return conjunctionOfF(i, j) * disjunctionOfD(i, j);
 }
@@ -145,6 +145,7 @@ void MatrixConverter::createC()
 			C[i].push_back(getElementC(i, j));
 		}
 	}
+	totalParallelCounter += metodParallelCounter / n;
 	totalParallelCounter += (7 * time_of_multiplicity + 2 * time_of_sum + 3 * time_of_difference) * ceil(p * q / n);
 }
 
