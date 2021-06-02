@@ -26,20 +26,8 @@ int main() {
 	cout << " Коэффициент ускорения: " << matrixConverter->getCoefficientOfAcceleration() << endl;
 	cout << " Эффективность: " << matrixConverter->getEffectivity() << endl;
 	cout << " Суммарная длина програмы: " << matrixConverter->getSumLenthOfProgram() << endl;
-
-	int time_of_sum, time_of_difference, time_of_multiplicity, time_of_comparing;
-
-	cout << " Время суммы:\n";
-	cin >> time_of_sum;
-	cout << " Время разности:\n";
-	cin >> time_of_difference;
-	cout << " Время умножения:\n";
-	cin >> time_of_multiplicity;
-	cout << " Время сравнения:\n";
-	cin >> time_of_comparing;
-
-	cout << " Средняя длинна: " << matrixConverter->getLavg(time_of_sum, time_of_difference, time_of_multiplicity, time_of_comparing) << endl;
-	cout << " Коэффициент расхождения программы: " << matrixConverter->getD(time_of_sum, time_of_difference, time_of_multiplicity, time_of_comparing);
+	cout << " Средняя длинна: " << matrixConverter->getLavg() << endl;
+	cout << " Коэффициент расхождения программы: " << matrixConverter->getD();
 
 	delete matrixConverter;
 }

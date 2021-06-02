@@ -22,6 +22,7 @@ private:
 
 	int n;
 	int totalCounter;
+	int totalParallelCounter = 0;
 
 	int sumCounter = 0;
 	int diffirenceCounter = 0;
@@ -39,6 +40,11 @@ private:
 
 	int elementCCounter = 0;
 	int elementFCounter = 0;
+
+	int time_of_sum = 1;
+	int time_of_difference = 1;
+	int time_of_multiplicity = 1;
+	int time_of_comparing = 1;
 
 
 
@@ -87,7 +93,7 @@ public:
 	int getElementCCounter();
 	int getElementFCounter();
 
-	int getLavg(int time_of_sum, int time_of_difference, int time_of_multiplicity, int time_of_comparing);
-	int getD(int time_of_sum, int time_of_difference, int time_of_multiplicity, int time_of_comparing);
+	int getLavg();
+	int getD();
 
 };
